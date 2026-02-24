@@ -6,17 +6,14 @@ class Song
     private string artist;
     private double duration;
 
-    // Default constructor (Constructor Chaining)
     public Song() : this("Unknown", "Unknown", 0.0)
     {
     }
 
-    // Constructor Overloading (title & artist only)
     public Song(string t, string a) : this(t, a, 0.0)
     {
     }
 
-    // Parameterized constructor (all fields)
     public Song(string t, string a, double d)
     {
         title = string.IsNullOrWhiteSpace(t) ? "Unknown" : t;
@@ -24,7 +21,6 @@ class Song
         duration = d;
     }
 
-    // Method to display formatted song details
     public void DisplaySong()
     {
         Console.WriteLine("{0,-20} {1,-15} {2,6:F2}", title, artist, duration);
@@ -62,7 +58,6 @@ class Program
             if (!string.IsNullOrWhiteSpace(input))
                 double.TryParse(input, out duration);
 
-            // Create object using full parameterized constructor
             playlist[i] = new Song(title, artist, duration);
         }
 
